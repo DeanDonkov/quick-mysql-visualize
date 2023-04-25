@@ -2,7 +2,7 @@
 
 1. Install the project
 ```bash
-git clone https://github.com/username/projectname.git
+git clone https://github.com/DeanDonkov/quick-mysql-visualize
 ```
 
 2. Install flask:
