@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Data Visualization</title>
+</head>
+
+<body>
+    <h1>Add a Client</h1>
+    <form method="post" action="{{ url_for('insert_client') }}">
+        <label for="card_number">Card Number:</label>
+        <input type="text" name="card_number" required><br>
+    
+        <label for="full_name">Full Name:</label>
+        <input type="text" name="full_name" required><br>
+    
+        <label for="balance">Balance:</label>
+        <input type="number" name="balance" required><br>
+    
+        <button type="submit">Add Client</button>
+    </form>
+
+    <h1>Add a Bank</h1>
+    <form method="post" action="{{ url_for('insert_bank') }}">
+        <label for="bank_code">Bank Code:</label>
+        <input type="text" name="bank_code" required><br>
+    
+        <label for="bank_name">Bank Name:</label>
+        <input type="text" name="bank_name" required><br>
+    
+        <label for="legal_address">Legal Address:</label>
+        <input type="text" name="legal_address" required><br>
+    
+        <button type="submit">Add Bank</button>
+    </form>
+
+    <h1>Add an ATM</h1>
+    <form method="post" action="{{ url_for('insert_atm') }}">
+        <label for="atm_number">ATM Number:</label>
+        <input type="text" name="atm_number" required><br>
+    
+        <label for="atm_address">ATM Address:</label>
+        <input type="text" name="atm_address" required><br>
+    
+        <label for="bank_code">Bank Code:</label>
+        <input type="text" name="bank_code" required><br>
+    
+        <button type="submit">Add ATM</button>
+    </form>
+
+    <h1>Add an Operation</h1>
+    <form method="post" action="{{ url_for('insert_operation') }}">
+        <label for="operation_id">Operation ID:</label>
+        <input type="text" name="operation_id" required><br>
+    
+        <label for="card_number">Card Number:</label>
+        <input type="text" name="card_number" required><br>
+    
+        <label for="atm_number">ATM Number:</label>
+        <input type="text" name="atm_number" required><br>
+    
+        <label for="date">Date:</label>
+        <input type="date" name="date" required><br>
+    
+        <label for="time">Time:</label>
+        <input type="time" name="time" required><br>
+    
+        <label for="commission">Commission:</label>
+        <input type="checkbox" name="commission" value="1"><br>
+    
+        <label for="withdrawal_amount">Withdrawal Amount:</label>
+        <input type="number" name="withdrawal_amount" required><br>
+    
+        <button type="submit">Add Operation</button>
+    </form>
+
+    <h1>Banks</h1>
+    <table>
+        <tr>
+            <th>Bank Code</th>
+            <th>Bank Name</th>
+            <th>Legal Address</th>
+        </tr>
+        {% for bank in banks %}
+        <tr>
+            <td>{{ bank[0] }}</td>
+            <td>{{ bank[1] }}</td>
+            <td>{{ bank[2] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h1>Clients</h1>
+    <table>
+        <tr>
+            <th>Card Number</th>
+            <th>Full Name</th>
+            <th>Balance</th>
+        </tr>
+        {% for client in clients %}
+        <tr>
+            <td>{{ client[0] }}</td>
+            <td>{{ client[1] }}</td>
+            <td>{{ client[2] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h1>ATMs</h1>
+    <table>
+        <tr>
+            <th>ATM Number</th>
+            <th>ATM Address</th>
+            <th>Bank Code</th>
+        </tr>
+        {% for atm in atms %}
+        <tr>
+            <td>{{ atm[0] }}</td>
+            <td>{{ atm[1] }}</td>
+            <td>{{ atm[2] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h1>Operations</h1>
+    <table>
+        <tr>
+            <th>Operation ID</th>
+            <th>Card Number</th>
+            <th>ATM Number</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Commission</th>
+            <th>Withdrawal Amount</th>
+        </tr>
+        {% for operation in operations %}
+        <tr>
+            <td>{{ operation[0] }}</td>
+            <td>{{ operation[1] }}</td>
+            <td>{{ operation[2] }}</td>
+            <td>{{ operation[3] }}</td>
+            <td>{{ operation[4] }}</td>
+            <td>{{ operation[5] }}</td>
+            <td>{{ operation[6] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+    <h1>Results 1</h1>
+    <table>
+        <tr>
+            <!-- Add the appropriate table headers for your query here -->
+        </tr>
+        {% for row in results1 %}
+        <tr>
+            {% for item in row %}
+            <td>{{ item }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h1>Results 2</h1>
+    <table>
+        <tr>
+            <!-- Add the appropriate table headers for your query here -->
+        </tr>
+        {% for row in results2 %}
+        <tr>
+            {% for item in row %}
+            <td>{{ item }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h1>Results 3</h1>
+    <table>
+        <tr>
+            <!-- Add the appropriate table headers for your query here -->
+        </tr>
+        {% for row in results3 %}
+        <tr>
+            {% for item in row %}
+            <td>{{ item }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>
